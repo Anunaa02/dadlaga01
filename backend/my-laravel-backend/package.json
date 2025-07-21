@@ -1,0 +1,21 @@
+{
+  "name": "my-laravel-backend",
+  "version": "1.0.0",
+  "description": "A Laravel backend project",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npm run watch",
+    "watch": "mix watch",
+    "build": "npm run production",
+    "production": "mix --production"
+  },
+  "dependencies": {
+    "laravel-mix": "^6.0.0",
+    "axios": "^0.21.1"
+  },
+  "devDependencies": {
+    "sass": "^1.32.0",
+    "sass-loader": "^10.1.0"
+  },
+  "license": "MIT"
+}

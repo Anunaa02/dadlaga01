@@ -1,0 +1,19 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class ExampleModel extends Model
+{
+    use HasFactory;
+
+    protected $table = 'example_table'; // Specify the table name if different from the model name
+
+    protected $fillable = [
+        // Define the fillable attributes for mass assignment
+    ];
+
+    // Add any relationships, scopes, or custom methods here
+}
