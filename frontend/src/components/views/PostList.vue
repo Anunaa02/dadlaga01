@@ -18,7 +18,7 @@ onMounted(async () => {
 
 <template>
   <div class="post-list">
-    <h1>📚 Бүх постууд</h1>
+    <h1> Бүх постууд</h1>
 
     <div v-if="posts.length === 0">
       <p>Пост алга байна.</p>
