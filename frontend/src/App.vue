@@ -1,30 +1,33 @@
 <script setup>
 import HelloWorld from './components/HelloWorld.vue'
+import { ref } from 'vue'
+// Script хэсэг шаардлагагүй (одоо router ашиглаж байгаа тул route бүр өөр өөр component ачаалдаг)
 </script>
 
 <template>
-  <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
+  <div id="app">
+    <nav>
+      <router-link to="/">Нүүр</router-link>
+      <router-link to="/login">Нэвтрэх</router-link>
+      <router-link to="/posts/create">Пост нэмэх</router-link>
+    </nav>
+
+    <router-view /> <!-- Энд route-уудын дагуу Login.vue, PostList.vue гэх мэт харагдана -->
   </div>
-  <HelloWorld msg="Vite + Vue" />
 </template>
 
 <style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+nav {
+  background: #f0f0f0;
+  padding: 10px;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+nav a {
+  margin-right: 15px;
+  text-decoration: none;
+  color: #333;
 }
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
+nav a.router-link-active {
+  font-weight: bold;
+  color: #007BFF;
 }
 </style>
