@@ -1,33 +1,49 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import { ref } from 'vue'
-// Script хэсэг шаардлагагүй (одоо router ашиглаж байгаа тул route бүр өөр өөр component ачаалдаг)
+// No logic yet
 </script>
 
 <template>
-  <div id="app">
-    <nav>
-      <router-link to="/">Нүүр</router-link>
-      <router-link to="/login">Нэвтрэх</router-link>
-      <router-link to="/posts/create">Пост нэмэх</router-link>
-    </nav>
+  <a-layout>
+    <!-- Only show navbar if NOT on /login -->
+    <a-layout-header v-if="$route.path !== '/login'">
+      <div class="logo">PostHub</div>
+      <a-menu mode="horizontal" theme="dark" :selectedKeys="[selectedKey]">
+        <a-menu-item key="home">
+          <router-link to="/">Home</router-link>
+        </a-menu-item>
+        <a-menu-item key="profile">
+          <router-link to="/profile">Profile</router-link>
+        </a-menu-item>
+      </a-menu>
+    </a-layout-header>
 
-    <router-view /> <!-- Энд route-уудын дагуу Login.vue, PostList.vue гэх мэт харагдана -->
-  </div>
+    <!-- Main content -->
+    <a-layout-content style="padding: 24px">
+      <router-view />
+    </a-layout-content>
+
+    <a-layout-footer v-if="$route.path !== '/login'" style="text-align: center">
+      PostHub ©2025
+    </a-layout-footer>
+  </a-layout>
 </template>
 
+<script>
+export default {
+  computed: {
+    selectedKey() {
+      return this.$route.path === '/profile' ? 'profile' : 'home'
+    }
+  }
+}
+</script>
+
+
 <style scoped>
-nav {
-  background: #f0f0f0;
-  padding: 10px;
-}
-nav a {
-  margin-right: 15px;
-  text-decoration: none;
-  color: #333;
-}
-nav a.router-link-active {
-  font-weight: bold;
-  color: #007BFF;
+.logo {
+  color: white;
+  font-size: 24px;
+  float: left;
+  margin-right: 24px;
 }
 </style>
